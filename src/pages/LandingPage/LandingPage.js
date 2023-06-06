@@ -8,7 +8,7 @@ function LandingPage() {
 	const navigate = useNavigate();
 	class Map extends Component {
 		mapHandler = (event) => {
-			navigate("/parks");
+			navigate("/parks", { state: { stateName: event.target.dataset.name } });
 		};
 
 		render() {
