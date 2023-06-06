@@ -10,6 +10,7 @@ function ParksPage() {
 		<div className="parks-page-container">
 			<Header />
 			<h1>{location.state.stateName}</h1>
+			<h1>{location.state.stateCode}</h1>
 			<ParkCard />
 			<ParkDetails />
 		</div>

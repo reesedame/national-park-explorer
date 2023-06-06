@@ -8,7 +8,13 @@ function LandingPage() {
 	const navigate = useNavigate();
 	class Map extends Component {
 		mapHandler = (event) => {
-			navigate("/parks", { state: { stateName: event.target.dataset.name } });
+			console.log(event);
+			let stateName = event.target.innerHTML
+				.replace("<title>", "")
+				.replace("</title>", "");
+			navigate("/parks", {
+				state: { stateName: stateName, stateCode: event.target.dataset.name },
+			});
 		};
 
 		render() {
