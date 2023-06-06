@@ -1,7 +1,7 @@
-function ParkCard() {
+function ParkCard({ park }) {
 	return (
 		<div className="park-card">
-			<h6>Park Name</h6>
+			<h1>{park.fullName}</h1>
 		</div>
 	);
 }

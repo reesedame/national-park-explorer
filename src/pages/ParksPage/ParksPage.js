@@ -24,16 +24,17 @@ function ParksPage() {
 
 	useEffect(() => {
 		fetchParks();
-	});
+	}, []);
 
 	return (
 		<div className="parks-page-container">
 			<Header />
 			<h1>{location.state.stateName}</h1>
-			{parks.map((park) => {
-				return <h6>{park.fullName}</h6>;
-			})}
-			<ParkCard />
+			<div className="park-cards-container">
+				{parks.map((park) => {
+					return <ParkCard park={park} />;
+				})}
+			</div>
 			<ParkDetails />
 		</div>
 	);
