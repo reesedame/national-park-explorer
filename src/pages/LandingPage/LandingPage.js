@@ -1,22 +1,28 @@
 import Header from "../../components/Header/Header";
 import USAMap from "react-usa-map";
 import { Component } from "react";
+import "./LandingPage.css";
+import { useNavigate } from "react-router-dom";
 
-class LandingPage extends Component {
-	mapHandler = (event) => {
-		alert(event.target.dataset.name);
-	};
+function LandingPage() {
+	const navigate = useNavigate();
+	class Map extends Component {
+		mapHandler = (event) => {
+			navigate("/parks");
+		};
 
-	render() {
-		return (
-			<div className="landing-page-container">
-				<Header />
-				<h1>Landing Page</h1>
-				<h2>Map will go here</h2>
-				<USAMap onClick={this.mapHandler} />
-			</div>
-		);
+		render() {
+			return <USAMap onClick={this.mapHandler} defaultFill="#588157" />;
+		}
 	}
+
+	return (
+		<div className="landing-page-container">
+			<Header />
+			<h1>Landing Page</h1>
+			<Map />
+		</div>
+	);
 }
 
 export default LandingPage;

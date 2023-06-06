@@ -1,0 +1,8 @@
+path {
+    pointer-events: all;
+}
+
+path:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
