@@ -4,5 +4,29 @@ path {
 
 path:hover {
     cursor: pointer;
-    opacity: 0.5;
+    fill: #f7ba02;
+}
+
+.landing-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./../../../public/assets/pixel-trail.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+h1 {
+    color: white;
+}
+
+.logo-container {
+    background-image: url(./../../../public/assets/park-explorer-logo.png);
+    min-height: 23em;
+    min-width: 30em;
+    background-repeat: no-repeat;
 }

@@ -16,12 +16,13 @@ function LandingPage() {
 		};
 
 		render() {
-			return <USAMap onClick={this.mapHandler} defaultFill="#588157" />;
+			return <USAMap onClick={this.mapHandler} defaultFill="#f7cf02" />;
 		}
 	}
 
 	return (
 		<div className="landing-page-container">
+			<div className="logo-container"></div>
 			<h1>Click on a state to view its national parks!</h1>
 			<Map />
 		</div>
