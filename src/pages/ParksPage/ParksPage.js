@@ -39,7 +39,9 @@ function ParksPage() {
 					);
 				})}
 			</div>
-			<div className="park-details-container">
+			<div
+				className={`park-details-${currPark.length === 0 ? "" : "container"}`}
+			>
 				<ParkDetails park={currPark} />
 			</div>
 		</div>

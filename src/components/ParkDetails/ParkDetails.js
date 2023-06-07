@@ -4,8 +4,7 @@ function ParkDetails({ park }) {
 	if (Object.keys(park).length !== 0) {
 		return (
 			<div className="park-details">
-				<h1> Details:</h1>
-				<h2>{park.fullName}</h2>
+				<h1>{park.fullName}</h1>
 				<p>
 					<a
 						href={park.url}
@@ -26,7 +25,7 @@ function ParkDetails({ park }) {
 		);
 	} else {
 		return (
-			<div className="park-details">
+			<div className="no-park-details">
 				<h1>Click on a park to view its details!</h1>
 			</div>
 		);
