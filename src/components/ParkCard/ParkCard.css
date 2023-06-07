@@ -1,6 +1,6 @@
 .park-card {
     display: flex;
-    height: 4em;
+    max-height: fit-content;
     width: 15em;
     background-color: rgb(247, 166, 15, .9);
     color: white;
@@ -10,4 +10,9 @@
     margin: 1em;
     margin-top: 0;
     padding: 0.25em;
+}
+
+.park-card:hover {
+    cursor: pointer;
+    font-size: 110%;
 }

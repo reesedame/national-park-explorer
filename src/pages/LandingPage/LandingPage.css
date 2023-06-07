@@ -4,7 +4,8 @@ path {
 
 path:hover {
     cursor: pointer;
-    fill: #f7ba02;
+    fill: #faa405;
+    opacity: 0.8;
 }
 
 .landing-page-container {

@@ -30,4 +30,7 @@
 .park-cards-container {
     grid-column-start: 1;
     margin-left: 1.5em;
+    max-height: 75em;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }

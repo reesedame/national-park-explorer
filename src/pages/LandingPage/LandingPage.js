@@ -16,7 +16,9 @@ function LandingPage() {
 		};
 
 		render() {
-			return <USAMap onClick={this.mapHandler} defaultFill="#f7cf02" />;
+			return (
+				<USAMap onClick={this.mapHandler} defaultFill="rgb(247, 166, 15)" />
+			);
 		}
 	}
 
