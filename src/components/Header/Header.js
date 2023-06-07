@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
+import "./Header.css";
 
 function Header() {
 	return (
 		<nav>
-			<Link to="/">Back to State Selector</Link>
+			<div className="header-link-container">
+				<Link to="/" className="header-link">
+					Back to State Selector
+				</Link>
+			</div>
 		</nav>
 	);
 }

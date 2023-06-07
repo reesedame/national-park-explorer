@@ -1,0 +1,18 @@
+.header-link:link, .header-link:active, .header-link:visited {
+    text-decoration: none;
+    color: white;
+    padding: 1em;
+}
+
+nav {
+    background-color: rgb(247, 166, 15, .9);
+    border-radius: 12px;
+    max-width: fit-content;
+    max-height: min-content;
+    margin: 1.5em;
+    text-align: center;
+}
+
+.header-link-container {
+    margin-top: 0.5em;
+}
