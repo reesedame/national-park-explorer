@@ -1,7 +1,9 @@
-function ParkCard({ park }) {
+import "./ParkCard.css";
+
+function ParkCard({ park, setCurrPark }) {
 	return (
-		<div className="park-card">
-			<h1>{park.fullName}</h1>
+		<div className="park-card" onClick={() => setCurrPark(park)}>
+			<h3>{park.fullName}</h3>
 		</div>
 	);
 }

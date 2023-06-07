@@ -3,10 +3,12 @@ import ParkCard from "../../components/ParkCard/ParkCard";
 import ParkDetails from "../../components/ParkDetails/ParkDetails";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import "./ParksPage.css";
 
 function ParksPage() {
 	const location = useLocation();
 	const [parks, setParks] = useState([]);
+	const [currPark, setCurrPark] = useState([]);
 
 	const fetchParks = async () => {
 		try {
@@ -32,10 +34,10 @@ function ParksPage() {
 			<h1>{location.state.stateName}</h1>
 			<div className="park-cards-container">
 				{parks.map((park) => {
-					return <ParkCard park={park} />;
+					return <ParkCard park={park} setCurrPark={setCurrPark} />;
 				})}
 			</div>
-			<ParkDetails />
+			<ParkDetails park={currPark} />
 		</div>
 	);
 }
