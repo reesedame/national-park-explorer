@@ -26,7 +26,7 @@ function ParkDetails({ park }) {
 	} else {
 		return (
 			<div className="no-park-details">
-				<h1>Click on a park to view its details!</h1>
+				<h3>Click on a park to view its details!</h3>
 			</div>
 		);
 	}
