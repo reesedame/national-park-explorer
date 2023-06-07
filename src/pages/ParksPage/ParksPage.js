@@ -31,7 +31,7 @@ function ParksPage() {
 	return (
 		<div className="parks-page-container">
 			<Header />
-			<h1>{location.state.stateName}</h1>
+			<h1 className="state-name">{location.state.stateName}</h1>
 			<div className="park-cards-container">
 				{parks.map((park) => {
 					return (
@@ -39,7 +39,9 @@ function ParksPage() {
 					);
 				})}
 			</div>
-			<ParkDetails park={currPark} />
+			<div className="park-details-container">
+				<ParkDetails park={currPark} />
+			</div>
 		</div>
 	);
 }

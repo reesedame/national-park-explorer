@@ -1,0 +1,31 @@
+.parks-page-container {
+    background-image: url(./../../../public/assets/parks-page-bg.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: inline-grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.park-details-container {
+    grid-column-start: 2;
+    background-color: rgb(247, 166, 15, .9);
+    justify-self: stretch;
+    border-radius: 12px;
+    display: flex;
+    justify-content: left;
+    padding: 1em;
+    color: white;
+}
+
+.state-name {
+    grid-column-start: 1;
+    margin-left: 1.5em;
+}
+
+.park-cards-container {
+    grid-column-start: 1;
+    margin-left: 1.5em;
+}

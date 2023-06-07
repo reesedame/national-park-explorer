@@ -1,6 +1,12 @@
 .park-card {
+    display: flex;
     height: 4em;
     width: 15em;
-    background-color: green;
+    background-color: rgb(247, 166, 15, .9);
     color: white;
+    text-align: center;
+    justify-content: center;
+    border-radius: 12px;
+    margin: 1em;
+    padding: 0.25em;
 }
