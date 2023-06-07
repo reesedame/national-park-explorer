@@ -1,0 +1,17 @@
+.park-image {
+    height: auto;
+    width: auto;
+    max-height: 500px;
+    max-width: 500px;
+    border-radius: 12px;
+}
+
+.official-site:link, .official-site:visited, .official-site:active {
+    text-decoration: none;
+    color: white;
+}
+
+.official-site:hover {
+    cursor: pointer;
+    font-size: 125%;
+}

@@ -12,7 +12,7 @@
 .park-details-container {
     grid-column-start: 2;
     background-color: rgb(247, 166, 15, .9);
-    justify-self: stretch;
+    justify-self: center;
     border-radius: 12px;
     display: flex;
     justify-content: left;
