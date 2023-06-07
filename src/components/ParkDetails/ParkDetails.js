@@ -3,7 +3,9 @@ function ParkDetails({ park }) {
 		<div className="park-details">
 			<h3>{park.fullName} Details:</h3>
 			<p>
-				<a href={park.url}>Official Site</a>
+				<a href={park.url} target="_blank" rel="noopener noreferrer">
+					Official Site
+				</a>
 			</p>
 			<p>{park.description}</p>
 		</div>
