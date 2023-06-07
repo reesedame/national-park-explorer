@@ -34,7 +34,9 @@ function ParksPage() {
 			<h1>{location.state.stateName}</h1>
 			<div className="park-cards-container">
 				{parks.map((park) => {
-					return <ParkCard park={park} setCurrPark={setCurrPark} />;
+					return (
+						<ParkCard park={park} setCurrPark={setCurrPark} key={park.id} />
+					);
 				})}
 			</div>
 			<ParkDetails park={currPark} />
