@@ -6,11 +6,12 @@
     min-height: 100vh;
     min-width: 100vw;
     display: inline-grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 25em);
+    grid-template-rows: 5em min-content 50em;
 }
 
 .park-details-container {
-    grid-column-start: 2;
+    grid-area: 3 / 2;
     background-color: rgb(247, 166, 15, .9);
     justify-self: center;
     border-radius: 12px;
@@ -23,6 +24,7 @@
 .state-name {
     grid-column-start: 1;
     margin-left: 1.5em;
+    max-height: fit-content;
 }
 
 .park-cards-container {
