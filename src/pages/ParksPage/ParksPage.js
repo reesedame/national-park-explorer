@@ -2,7 +2,7 @@ import Header from "../../components/Header/Header";
 import ParkCard from "../../components/ParkCard/ParkCard";
 import ParkDetails from "../../components/ParkDetails/ParkDetails";
 import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "./ParksPage.css";
 import ParkAmenities from "../../components/ParkAmenities/ParkAmenities";
 
@@ -11,7 +11,7 @@ function ParksPage() {
 	const [parks, setParks] = useState([]);
 	const [currPark, setCurrPark] = useState([]);
 
-	const fetchParks = async () => {
+	const fetchParks = useCallback(async () => {
 		try {
 			const apiKey = process.env.REACT_APP_KEY;
 			const stateCode = location.state.stateCode;
@@ -23,11 +23,11 @@ function ParksPage() {
 		} catch (error) {
 			return <h1>Something went wrong!</h1>;
 		}
-	};
+	}, [location.state.stateCode]);
 
 	useEffect(() => {
 		fetchParks();
-	}, []);
+	}, [fetchParks]);
 
 	return (
 		<div className="parks-page-container">
