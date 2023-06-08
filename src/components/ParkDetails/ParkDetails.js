@@ -10,7 +10,7 @@ function ParkDetails({ park }) {
 			setImageIdx((prevIdx) =>
 				prevIdx === parkImages.length - 1 ? 0 : prevIdx + 1
 			);
-		}, 5000);
+		}, 8000);
 	}, []);
 
 	return (
@@ -32,6 +32,7 @@ function ParkDetails({ park }) {
 					src={parkImages[imageIdx].url}
 					alt={parkImages[imageIdx].title}
 					className="park-image"
+					loading="lazy"
 				/>
 				<figcaption>
 					<i>{parkImages[imageIdx].caption}</i>

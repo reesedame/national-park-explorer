@@ -11,7 +11,7 @@ path:hover {
 .landing-page-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     background-image: url(./../../../public/assets/pixel-trail.png);
     background-repeat: no-repeat;
@@ -23,6 +23,9 @@ path:hover {
 
 h1 {
     color: white;
+    background-color: #faa405;
+    border-radius: 12px;
+    padding: 0.25em;
 }
 
 .logo-container {
@@ -30,4 +33,5 @@ h1 {
     min-height: 23em;
     min-width: 30em;
     background-repeat: no-repeat;
+    margin-top: 5em;
 }
