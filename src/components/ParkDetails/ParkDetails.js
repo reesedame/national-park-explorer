@@ -1,35 +1,39 @@
 import "./ParkDetails.css";
+import { useState, useEffect } from "react";
 
 function ParkDetails({ park }) {
-	if (Object.keys(park).length !== 0) {
-		return (
-			<div className="park-details">
-				<h1>{park.fullName}</h1>
-				<p>
-					<a
-						href={park.url}
-						target="_blank"
-						rel="noopener noreferrer"
-						className="official-site"
-					>
-						Official Site
-					</a>
-				</p>
-				<p>{park.description}</p>
-				<img
-					src={park.images[0].url}
-					alt="View of park"
-					className="park-image"
-				/>
-			</div>
-		);
-	} else {
-		return (
-			<div className="no-park-details">
-				<h3>Click on a park to view its details!</h3>
-			</div>
-		);
-	}
+	const [imageIdx, setImageIdx] = useState(0);
+	let parkImages = park.images;
+
+	useEffect(() => {
+		setInterval(() => {
+			setImageIdx((prevIdx) =>
+				prevIdx === parkImages.length - 1 ? 0 : prevIdx + 1
+			);
+		}, 3000);
+	}, []);
+
+	return (
+		<div className="park-details">
+			<h1>{park.fullName}</h1>
+			<p>
+				<a
+					href={park.url}
+					target="_blank"
+					rel="noopener noreferrer"
+					className="official-site"
+				>
+					Official Site
+				</a>
+			</p>
+			<p>{park.description}</p>
+			<img
+				src={parkImages[imageIdx].url}
+				alt={parkImages[imageIdx].title}
+				className="park-image"
+			/>
+		</div>
+	);
 }
 
 export default ParkDetails;

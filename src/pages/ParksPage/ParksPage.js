@@ -46,7 +46,13 @@ function ParksPage() {
 			<div
 				className={`park-details-${currPark.length === 0 ? "" : "container"}`}
 			>
-				<ParkDetails park={currPark} />
+				{currPark.length === 0 ? (
+					<div className="no-park-details">
+						<h3>Click on a park to view its details!</h3>
+					</div>
+				) : (
+					<ParkDetails park={currPark} />
+				)}
 			</div>
 		</div>
 	);
