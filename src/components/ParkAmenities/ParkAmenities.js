@@ -17,20 +17,6 @@ function ParkAmenities({ park }) {
 		}
 	}, [park]);
 
-	// const fetchAmenities = async () => {
-	// 	try {
-	// 		const apiKey = process.env.REACT_APP_KEY;
-	// 		const parkCode = park.parkCode;
-	// 		const requestURL = `https://developer.nps.gov/api/v1/amenities/parksplaces?api_key=${apiKey}&parkCode=${parkCode}`;
-	// 		const response = await fetch(requestURL);
-	// 		const amenitiesDataObject = await response.json();
-	// 		const amenitiesArray = amenitiesDataObject.data;
-	// 		setAmenities(amenitiesArray);
-	// 	} catch (error) {
-	// 		return <p>Unable to display amenities. Please try again later!</p>;
-	// 	}
-	// };
-
 	useEffect(() => {
 		fetchAmenities();
 	}, [fetchAmenities]);

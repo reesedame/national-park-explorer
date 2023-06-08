@@ -10,6 +10,7 @@ function ParksPage() {
 	const location = useLocation();
 	const [parks, setParks] = useState([]);
 	const [currPark, setCurrPark] = useState([]);
+	const [stateAmenities, setStateAmenities] = useState([]);
 
 	const fetchParks = useCallback(async () => {
 		try {
@@ -25,12 +26,31 @@ function ParksPage() {
 		}
 	}, [location.state.stateCode]);
 
+	const fetchStateAmenities = useCallback(async () => {
+		try {
+			const apiKey = process.env.REACT_APP_KEY;
+			const stateCode = location.state.stateCode;
+			const requestURL = `https://developer.nps.gov/api/v1/amenities/parksplaces?api_key=${apiKey}&stateCode=${stateCode}&limit=150`;
+			const response = await fetch(requestURL);
+			const stateAmenitiesObject = await response.json();
+			const stateAmenitiesArray = stateAmenitiesObject.data;
+			setStateAmenities(stateAmenitiesArray);
+		} catch (error) {
+			return <p>Cannot filter right now. Try again later!</p>;
+		}
+	}, [location.state.stateCode]);
+
 	useEffect(() => {
 		fetchParks();
 	}, [fetchParks]);
 
+	useEffect(() => {
+		fetchStateAmenities();
+	}, [fetchStateAmenities]);
+
 	return (
 		<div className="parks-page-container">
+			{console.log(stateAmenities)}
 			<Header />
 			<h1 className="state-name">
 				{location.state.stateCode === "DC"
