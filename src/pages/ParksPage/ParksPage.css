@@ -40,7 +40,7 @@
 
 .state-name {
     grid-column-start: 1;
-    margin-left: 1.5em;
+    margin-left: 1em;
     max-height: fit-content;
     max-width: fit-content;
     padding: 0.25em;
