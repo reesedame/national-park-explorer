@@ -19,7 +19,8 @@ function ParkAmenities({ park }) {
 
 	useEffect(() => {
 		fetchAmenities();
-	}, []);
+		console.log("useEffect ran");
+	}, [park]);
 
 	return (
 		<div>
