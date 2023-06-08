@@ -10,7 +10,7 @@ function ParkDetails({ park }) {
 			setImageIdx((prevIdx) =>
 				prevIdx === parkImages.length - 1 ? 0 : prevIdx + 1
 			);
-		}, 3000);
+		}, 5000);
 	}, []);
 
 	return (
@@ -27,11 +27,16 @@ function ParkDetails({ park }) {
 				</a>
 			</p>
 			<p>{park.description}</p>
-			<img
-				src={parkImages[imageIdx].url}
-				alt={parkImages[imageIdx].title}
-				className="park-image"
-			/>
+			<figure>
+				<img
+					src={parkImages[imageIdx].url}
+					alt={parkImages[imageIdx].title}
+					className="park-image"
+				/>
+				<figcaption>
+					<i>{parkImages[imageIdx].caption}</i>
+				</figcaption>
+			</figure>
 		</div>
 	);
 }
