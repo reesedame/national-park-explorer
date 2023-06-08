@@ -4,6 +4,7 @@ import ParkDetails from "../../components/ParkDetails/ParkDetails";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./ParksPage.css";
+import ParkAmenities from "../../components/ParkAmenities/ParkAmenities";
 
 function ParksPage() {
 	const location = useLocation();
@@ -51,7 +52,10 @@ function ParksPage() {
 						<h3>Click on a park to view its details!</h3>
 					</div>
 				) : (
-					<ParkDetails park={currPark} />
+					<>
+						<ParkDetails park={currPark} />
+						<ParkAmenities park={currPark} />
+					</>
 				)}
 			</div>
 		</div>
