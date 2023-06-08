@@ -21,7 +21,7 @@ path:hover {
     min-width: 100vw;
 }
 
-h1 {
+.landing-page-container h1 {
     color: white;
     background-color: #faa405;
     border-radius: 12px;
