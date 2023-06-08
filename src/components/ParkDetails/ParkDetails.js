@@ -58,9 +58,9 @@ function ParkDetails({ park }) {
 				</figcaption>
 			</figure>
 			<ul>
-				{/* {amenities.map((amenity) => {
+				{amenities.map((amenity) => {
 					return <li key={amenity[0].id}>{amenity[0].name}</li>;
-				})} */}
+				})}
 			</ul>
 		</div>
 	);
