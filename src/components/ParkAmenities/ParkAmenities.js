@@ -13,7 +13,7 @@ function ParkAmenities({ park }) {
 			const amenitiesArray = amenitiesDataObject.data;
 			setAmenities(amenitiesArray);
 		} catch (error) {
-			console.log(error);
+			return <p>Unable to display amenities. Please try again later!</p>;
 		}
 	};
 
@@ -22,7 +22,8 @@ function ParkAmenities({ park }) {
 	}, []);
 
 	return (
-		<div className="amenities-container">
+		<div>
+			<h2>Amenities</h2>
 			<ul>
 				{amenities.map((amenity) => {
 					return <li key={amenity[0].id}>{amenity[0].name}</li>;

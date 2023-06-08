@@ -6,7 +6,7 @@
     min-height: 100vh;
     min-width: 100vw;
     display: grid;
-    grid-template-columns: min-content auto;
+    grid-template-columns: min-content auto auto;
     grid-template-rows: 5em min-content 65em;
 }
 
@@ -24,16 +24,29 @@
     font-size: 1.5em;
 }
 
-.park-details- {
-    grid-column-start: 2;
-    grid-row-end: 3;
+.park-amenities-container {
+    grid-area: 3 / 3;
     background-color: rgb(247, 166, 15, .9);
     border-radius: 12px;
     display: flex;
     justify-content: center;
     padding: 1em;
     color: white;
+    max-width: 25em;
+    max-height: 60em;
     justify-self: center;
+    font-size: 1.25em;
+}
+
+.no-park-details {
+    grid-area: 2 / 3;
+    background-color: rgb(247, 166, 15, .9);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    color: white;
+    justify-self: stretch;
     font-size: 1.5em;
     max-width: max-content;
 }

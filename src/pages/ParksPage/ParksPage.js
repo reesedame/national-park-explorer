@@ -44,20 +44,20 @@ function ParksPage() {
 					);
 				})}
 			</div>
-			<div
-				className={`park-details-${currPark.length === 0 ? "" : "container"}`}
-			>
-				{currPark.length === 0 ? (
-					<div className="no-park-details">
-						<h3>Click on a park to view its details!</h3>
-					</div>
-				) : (
-					<>
+			{currPark.length === 0 ? (
+				<div className="no-park-details">
+					<h3>Click on a park to view its details!</h3>
+				</div>
+			) : (
+				<>
+					<div className="park-details-container">
 						<ParkDetails park={currPark} />
+					</div>
+					<div className="park-amenities-container">
 						<ParkAmenities park={currPark} />
-					</>
-				)}
-			</div>
+					</div>
+				</>
+			)}
 		</div>
 	);
 }
