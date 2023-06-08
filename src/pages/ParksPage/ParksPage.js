@@ -31,7 +31,11 @@ function ParksPage() {
 	return (
 		<div className="parks-page-container">
 			<Header />
-			<h1 className="state-name">{location.state.stateName}</h1>
+			<h1 className="state-name">
+				{location.state.stateCode === "DC"
+					? "Washington, D.C."
+					: location.state.stateName}
+			</h1>
 			<div className="park-cards-container">
 				{parks.map((park) => {
 					return (
