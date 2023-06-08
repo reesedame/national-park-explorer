@@ -22,6 +22,8 @@
     max-height: 60em;
     justify-self: center;
     font-size: 1.5em;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .park-amenities-container {
@@ -33,9 +35,11 @@
     padding: 1em;
     color: white;
     max-width: 25em;
-    max-height: 60em;
+    max-height: fit-content;
     justify-self: center;
     font-size: 1.25em;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .no-park-details {
@@ -70,6 +74,6 @@
     overflow-x: hidden;
 }
 
-.park-cards-container::-webkit-scrollbar {
+.park-cards-container::-webkit-scrollbar, .park-amenities-container::-webkit-scrollbar, .park-details-container::-webkit-scrollbar {
     display: none;
 }
