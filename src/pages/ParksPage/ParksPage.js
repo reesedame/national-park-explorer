@@ -99,10 +99,11 @@ function ParksPage() {
 		let filteredParks = [];
 		allParks.forEach((park) => {
 			let amenities = JSON.parse(localStorage.getItem(park.parkCode));
-			if (amenities.includes(selectedAmenities)) {
+			if (amenities.includes(selectedAmenities.value)) {
 				filteredParks.push(park);
 			}
 		});
+		console.log(filteredParks);
 		setParks(filteredParks);
 	}
 
