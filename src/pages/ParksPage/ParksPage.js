@@ -37,20 +37,13 @@ function ParksPage() {
 			const response = await fetch(requestURL);
 			const stateAmenitiesObject = await response.json();
 			const stateAmenitiesArray = stateAmenitiesObject.data;
-			// console.log("potato");
-			// console.log(stateAmenitiesArray);
 			setStateAmenities(stateAmenitiesArray);
 		} catch (error) {
 			return <p>Cannot filter right now. Try again later!</p>;
 		}
 	}, [location.state.stateCode]);
 
-	useEffect(() => {
-		fetchParks();
-	}, [fetchParks]);
-
-	useEffect(() => {
-		fetchStateAmenities();
+	const updateFilterOptions = useCallback(() => {
 		setStateAmenitiesFilterOptions(
 			stateAmenities.map((amenity) => {
 				return {
@@ -59,7 +52,19 @@ function ParksPage() {
 				};
 			})
 		);
-	}, [fetchStateAmenities, stateAmenities]);
+	}, [stateAmenities]);
+
+	useEffect(() => {
+		fetchParks();
+	}, [fetchParks]);
+
+	useEffect(() => {
+		fetchStateAmenities();
+	}, [fetchStateAmenities]);
+
+	useEffect(() => {
+		updateFilterOptions();
+	}, [updateFilterOptions]);
 
 	return (
 		<div className="parks-page-container">
