@@ -98,11 +98,16 @@ function ParksPage() {
 	function handleFilter(selectedAmenities) {
 		let filteredParks = [];
 		allParks.forEach((park) => {
-			let amenities = JSON.parse(localStorage.getItem(park.parkCode));
-			if (amenities.includes(selectedAmenities.value)) {
+			let parkAmenities = JSON.parse(localStorage.getItem(park.parkCode));
+			if (
+				selectedAmenities.every((selectedAmenity) =>
+					parkAmenities.includes(selectedAmenity.value)
+				)
+			) {
 				filteredParks.push(park);
 			}
 		});
+		console.log("Filtered parks:");
 		console.log(filteredParks);
 		setParks(filteredParks);
 	}
@@ -115,7 +120,11 @@ function ParksPage() {
 					? "Washington, D.C."
 					: location.state.stateName}
 			</h1>
-			<Select options={stateAmenitiesFilterOptions} onChange={handleFilter} />
+			<Select
+				options={stateAmenitiesFilterOptions}
+				onChange={handleFilter}
+				isMulti
+			/>
 			<div className="park-cards-container">
 				{parks.map((park) => {
 					return (
