@@ -1,6 +1,6 @@
 # National Park Explorer
 
-[Click here to start exploring!]()
+[Click here to start exploring!](https://nationalparkexplorer.netlify.app/)
 
 ## Description
 
@@ -21,7 +21,7 @@ Utilizing the [National Park Service API](https://www.nps.gov/subjects/developer
 
 ## Getting Started
 
-[Check out the app here!]()
+[Check out the app here!](https://nationalparkexplorer.netlify.app/)
 
 If you would like to run the application locally, you can do so by [cloning](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) it onto your device. Be sure to run `npm i` to download the necessary packages. Then, you can run `npm start` to run the application locally.
 
