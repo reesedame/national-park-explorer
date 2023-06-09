@@ -5,15 +5,11 @@ import { useLocation } from "react-router-dom";
 import { useCallback, useEffect, useState } from "react";
 import "./ParksPage.css";
 import ParkAmenities from "../../components/ParkAmenities/ParkAmenities";
-import Select from "react-select";
 
 function ParksPage() {
 	const location = useLocation();
 	const [parks, setParks] = useState([]);
 	const [currPark, setCurrPark] = useState([]);
-	const [stateAmenities, setStateAmenities] = useState([]);
-	const [stateAmenitiesFilterOptions, setStateAmenitiesFilterOptions] =
-		useState([]);
 
 	const fetchParks = useCallback(async () => {
 		try {
@@ -29,37 +25,9 @@ function ParksPage() {
 		}
 	}, [location.state.stateCode]);
 
-	const fetchStateAmenities = useCallback(async () => {
-		try {
-			const apiKey = process.env.REACT_APP_KEY;
-			const stateCode = location.state.stateCode;
-			const requestURL = `https://developer.nps.gov/api/v1/amenities/parksplaces?api_key=${apiKey}&stateCode=${stateCode}&limit=150`;
-			const response = await fetch(requestURL);
-			const stateAmenitiesObject = await response.json();
-			const stateAmenitiesArray = stateAmenitiesObject.data;
-			// console.log("potato");
-			// console.log(stateAmenitiesArray);
-			setStateAmenities(stateAmenitiesArray);
-		} catch (error) {
-			return <p>Cannot filter right now. Try again later!</p>;
-		}
-	}, [location.state.stateCode]);
-
 	useEffect(() => {
 		fetchParks();
 	}, [fetchParks]);
-
-	useEffect(() => {
-		fetchStateAmenities();
-		setStateAmenitiesFilterOptions(
-			stateAmenities.map((amenity) => {
-				return {
-					value: amenity[0].name,
-					label: amenity[0].name,
-				};
-			})
-		);
-	}, [fetchStateAmenities, stateAmenities]);
 
 	return (
 		<div className="parks-page-container">
@@ -69,7 +37,6 @@ function ParksPage() {
 					? "Washington, D.C."
 					: location.state.stateName}
 			</h1>
-			<Select options={stateAmenitiesFilterOptions} />
 			<div className="park-cards-container">
 				{parks.map((park) => {
 					return (
