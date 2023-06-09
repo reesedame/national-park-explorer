@@ -28,7 +28,7 @@ function ParkDetails({ park }) {
 				</a>
 			</p>
 			<p>{park.description}</p>
-			{parkImages[imageIdx].url === undefined ? (
+			{parkImages[imageIdx] === undefined ? (
 				<p>Image not available.</p>
 			) : (
 				<figure>
