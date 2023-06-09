@@ -11,7 +11,7 @@ function ParkDetails({ park }) {
 				prevIdx === parkImages.length - 1 ? 0 : prevIdx + 1
 			);
 		}, 8000);
-	}, []);
+	}, [parkImages.length]);
 
 	return (
 		<div className="park-details">

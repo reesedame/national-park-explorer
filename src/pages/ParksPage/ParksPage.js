@@ -5,12 +5,15 @@ import { useLocation } from "react-router-dom";
 import { useCallback, useEffect, useState } from "react";
 import "./ParksPage.css";
 import ParkAmenities from "../../components/ParkAmenities/ParkAmenities";
+import Select from "react-select";
 
 function ParksPage() {
 	const location = useLocation();
 	const [parks, setParks] = useState([]);
 	const [currPark, setCurrPark] = useState([]);
 	const [stateAmenities, setStateAmenities] = useState([]);
+	const [stateAmenitiesFilterOptions, setStateAmenitiesFilterOptions] =
+		useState([]);
 
 	const fetchParks = useCallback(async () => {
 		try {
@@ -34,6 +37,8 @@ function ParksPage() {
 			const response = await fetch(requestURL);
 			const stateAmenitiesObject = await response.json();
 			const stateAmenitiesArray = stateAmenitiesObject.data;
+			// console.log("potato");
+			// console.log(stateAmenitiesArray);
 			setStateAmenities(stateAmenitiesArray);
 		} catch (error) {
 			return <p>Cannot filter right now. Try again later!</p>;
@@ -46,17 +51,25 @@ function ParksPage() {
 
 	useEffect(() => {
 		fetchStateAmenities();
-	}, [fetchStateAmenities]);
+		setStateAmenitiesFilterOptions(
+			stateAmenities.map((amenity) => {
+				return {
+					value: amenity[0].name,
+					label: amenity[0].name,
+				};
+			})
+		);
+	}, [fetchStateAmenities, stateAmenities]);
 
 	return (
 		<div className="parks-page-container">
-			{console.log(stateAmenities)}
 			<Header />
 			<h1 className="state-name">
 				{location.state.stateCode === "DC"
 					? "Washington, D.C."
 					: location.state.stateName}
 			</h1>
+			<Select options={stateAmenitiesFilterOptions} />
 			<div className="park-cards-container">
 				{parks.map((park) => {
 					return (
