@@ -117,11 +117,14 @@ function ParksPage() {
 					? "Washington, D.C."
 					: location.state.stateName}
 			</h1>
-			<Select
-				options={stateAmenitiesFilterOptions}
-				onChange={handleFilter}
-				isMulti
-			/>
+			<div className="filter">
+				<h3 className="filter-label">Filter by amenity: </h3>
+				<Select
+					options={stateAmenitiesFilterOptions}
+					onChange={handleFilter}
+					isMulti
+				/>
+			</div>
 			<div className="park-cards-container">
 				{parks.length === 0 ? (
 					<h3 className="no-parks">
