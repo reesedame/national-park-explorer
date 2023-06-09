@@ -11,6 +11,7 @@ function ParksPage() {
 	const [parks, setParks] = useState([]);
 	const [currPark, setCurrPark] = useState([]);
 
+	// Gets parks based on state that was clicked on LandingPage
 	const fetchParks = useCallback(async () => {
 		try {
 			const apiKey = process.env.REACT_APP_KEY;

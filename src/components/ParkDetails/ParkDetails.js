@@ -5,6 +5,7 @@ function ParkDetails({ park }) {
 	const [imageIdx, setImageIdx] = useState(0);
 	let parkImages = park.images;
 
+	// This function iterates through the images provided by the API & displays each for 8s
 	useEffect(() => {
 		setInterval(() => {
 			setImageIdx((prevIdx) =>
