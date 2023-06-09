@@ -34,8 +34,7 @@ function ParksPage() {
 	const fetchStateAmenities = useCallback(async () => {
 		try {
 			const apiKey = process.env.REACT_APP_KEY;
-			const stateCode = location.state.stateCode;
-			const requestURL = `https://developer.nps.gov/api/v1/amenities/parksplaces?api_key=${apiKey}&stateCode=${stateCode}&limit=150`;
+			const requestURL = `https://developer.nps.gov/api/v1/amenities/parksplaces?api_key=${apiKey}&limit=150`;
 			const response = await fetch(requestURL);
 			const stateAmenitiesObject = await response.json();
 			const stateAmenitiesArray = stateAmenitiesObject.data;
@@ -43,7 +42,7 @@ function ParksPage() {
 		} catch (error) {
 			return <p>Cannot filter right now. Try again later!</p>;
 		}
-	}, [location.state.stateCode]);
+	}, []);
 
 	const updateFilterOptions = useCallback(() => {
 		setStateAmenitiesFilterOptions(
