@@ -24,11 +24,15 @@ function ParkAmenities({ park }) {
 	return (
 		<div>
 			<h2>Amenities</h2>
-			<ul>
-				{amenities.map((amenity) => {
-					return <li key={amenity[0].id}>{amenity[0].name}</li>;
-				})}
-			</ul>
+			{amenities.length === 0 ? (
+				<h4>Amenity information is not available for this location.</h4>
+			) : (
+				<ul>
+					{amenities.map((amenity) => {
+						return <li key={amenity[0].id}>{amenity[0].name}</li>;
+					})}
+				</ul>
+			)}
 		</div>
 	);
 }
