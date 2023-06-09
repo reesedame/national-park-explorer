@@ -12,7 +12,7 @@ function ParkDetails({ park }) {
 				prevIdx === parkImages.length - 1 ? 0 : prevIdx + 1
 			);
 		}, 8000);
-	}, [parkImages.length]);
+	}, []);
 
 	return (
 		<div className="park-details">
@@ -28,17 +28,21 @@ function ParkDetails({ park }) {
 				</a>
 			</p>
 			<p>{park.description}</p>
-			<figure>
-				<img
-					src={parkImages[imageIdx].url}
-					alt={parkImages[imageIdx].title}
-					className="park-image"
-					loading="lazy"
-				/>
-				<figcaption>
-					<i>{parkImages[imageIdx].caption}</i>
-				</figcaption>
-			</figure>
+			{parkImages[imageIdx].url === undefined ? (
+				<p>Image not available.</p>
+			) : (
+				<figure>
+					<img
+						src={parkImages[imageIdx].url}
+						alt={parkImages[imageIdx].title}
+						className="park-image"
+						loading="lazy"
+					/>
+					<figcaption>
+						<i>{parkImages[imageIdx].caption}</i>
+					</figcaption>
+				</figure>
+			)}
 		</div>
 	);
 }
