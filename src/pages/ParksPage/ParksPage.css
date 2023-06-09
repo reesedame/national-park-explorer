@@ -77,3 +77,11 @@
 .park-cards-container::-webkit-scrollbar, .park-amenities-container::-webkit-scrollbar, .park-details-container::-webkit-scrollbar {
     display: none;
 }
+
+.no-parks {
+    background-color: rgb(247, 166, 15, .9);
+    color: white;
+    margin-left: 1.5em;
+    padding: 0.25em;
+    border-radius: 12px;
+}

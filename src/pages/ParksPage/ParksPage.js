@@ -107,8 +107,6 @@ function ParksPage() {
 				filteredParks.push(park);
 			}
 		});
-		console.log("Filtered parks:");
-		console.log(filteredParks);
 		setParks(filteredParks);
 	}
 
@@ -126,11 +124,20 @@ function ParksPage() {
 				isMulti
 			/>
 			<div className="park-cards-container">
-				{parks.map((park) => {
-					return (
-						<ParkCard park={park} setCurrPark={setCurrPark} key={park.id} />
-					);
-				})}
+				{parks.length === 0 ? (
+					<h3 className="no-parks">
+						None of the current state's sites contain all of the selected
+						amenities.
+					</h3>
+				) : (
+					<>
+						{parks.map((park) => {
+							return (
+								<ParkCard park={park} setCurrPark={setCurrPark} key={park.id} />
+							);
+						})}
+					</>
+				)}
 			</div>
 			{currPark.length === 0 ? (
 				<div className="no-park-details">
