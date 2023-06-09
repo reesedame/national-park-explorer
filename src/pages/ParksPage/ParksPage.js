@@ -11,7 +11,6 @@ function ParksPage() {
 	const location = useLocation();
 	const [parks, setParks] = useState([]);
 	const [currPark, setCurrPark] = useState([]);
-	const [stateAmenities, setStateAmenities] = useState([]);
 	const [stateAmenitiesFilterOptions, setStateAmenitiesFilterOptions] =
 		useState([]);
 
@@ -33,26 +32,16 @@ function ParksPage() {
 		try {
 			const apiKey = process.env.REACT_APP_KEY;
 			const stateCode = location.state.stateCode;
-			let amenityNames = [];
-			if (localStorage.getItem(stateCode)) {
-				console.log("Getting from local");
-				amenityNames = JSON.parse(localStorage.getItem(stateCode));
-			} else {
-				console.log("Getting from API");
+			if (localStorage.getItem(stateCode) === null) {
 				const requestURL = `https://developer.nps.gov/api/v1/amenities/parksplaces?api_key=${apiKey}&stateCode=${stateCode}&limit=150`;
 				const response = await fetch(requestURL);
 				const stateAmenitiesObject = await response.json();
 				const stateAmenitiesArray = stateAmenitiesObject.data;
-				amenityNames = stateAmenitiesArray.map((amenity) => {
+				const amenityNames = stateAmenitiesArray.map((amenity) => {
 					return amenity[0].name;
 				});
-				console.log("Get complete");
-				console.log(JSON.stringify(amenityNames));
 				localStorage.setItem(stateCode, JSON.stringify(amenityNames));
 			}
-			// console.log("potato");
-			// console.log(stateAmenitiesArray);
-			setStateAmenities(amenityNames);
 		} catch (error) {
 			return <p>Cannot filter right now. Try again later!</p>;
 		}
@@ -64,15 +53,24 @@ function ParksPage() {
 
 	useEffect(() => {
 		fetchStateAmenities();
-		setStateAmenitiesFilterOptions(
-			stateAmenities.map((name) => {
-				return {
-					value: name,
-					label: name,
-				};
-			})
-		);
-	}, [fetchStateAmenities, stateAmenities]);
+		try {
+			setTimeout(() => {
+				const stateAmenities = JSON.parse(
+					localStorage.getItem(location.state.stateCode)
+				);
+				setStateAmenitiesFilterOptions(
+					stateAmenities.map((name) => {
+						return {
+							value: name,
+							label: name,
+						};
+					})
+				);
+			}, 3000);
+		} catch (error) {
+			console.log(error);
+		}
+	}, [fetchStateAmenities, location.state.stateCode]);
 
 	return (
 		<div className="parks-page-container">
