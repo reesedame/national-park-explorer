@@ -33,13 +33,26 @@ function ParksPage() {
 		try {
 			const apiKey = process.env.REACT_APP_KEY;
 			const stateCode = location.state.stateCode;
-			const requestURL = `https://developer.nps.gov/api/v1/amenities/parksplaces?api_key=${apiKey}&stateCode=${stateCode}&limit=150`;
-			const response = await fetch(requestURL);
-			const stateAmenitiesObject = await response.json();
-			const stateAmenitiesArray = stateAmenitiesObject.data;
+			let amenityNames = [];
+			if (localStorage.getItem(stateCode)) {
+				console.log("Getting from local");
+				amenityNames = JSON.parse(localStorage.getItem(stateCode));
+			} else {
+				console.log("Getting from API");
+				const requestURL = `https://developer.nps.gov/api/v1/amenities/parksplaces?api_key=${apiKey}&stateCode=${stateCode}&limit=150`;
+				const response = await fetch(requestURL);
+				const stateAmenitiesObject = await response.json();
+				const stateAmenitiesArray = stateAmenitiesObject.data;
+				amenityNames = stateAmenitiesArray.map((amenity) => {
+					return amenity[0].name;
+				});
+				console.log("Get complete");
+				console.log(JSON.stringify(amenityNames));
+				localStorage.setItem(stateCode, JSON.stringify(amenityNames));
+			}
 			// console.log("potato");
 			// console.log(stateAmenitiesArray);
-			setStateAmenities(stateAmenitiesArray);
+			setStateAmenities(amenityNames);
 		} catch (error) {
 			return <p>Cannot filter right now. Try again later!</p>;
 		}
@@ -52,10 +65,10 @@ function ParksPage() {
 	useEffect(() => {
 		fetchStateAmenities();
 		setStateAmenitiesFilterOptions(
-			stateAmenities.map((amenity) => {
+			stateAmenities.map((name) => {
 				return {
-					value: amenity[0].name,
-					label: amenity[0].name,
+					value: name,
+					label: name,
 				};
 			})
 		);
