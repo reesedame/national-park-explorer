@@ -14,6 +14,7 @@ function ParksPage() {
 	const [stateAmenities, setStateAmenities] = useState([]);
 	const [stateAmenitiesFilterOptions, setStateAmenitiesFilterOptions] =
 		useState([]);
+	const [allParks, setAllParks] = useState([]);
 
 	const fetchParks = useCallback(async () => {
 		try {
@@ -24,6 +25,7 @@ function ParksPage() {
 			const parksDataObject = await response.json();
 			const parksArray = parksDataObject.data;
 			setParks(parksArray);
+			setAllParks(parksArray);
 		} catch (error) {
 			return <h1>Something went wrong!</h1>;
 		}
@@ -93,6 +95,17 @@ function ParksPage() {
 		setLocalStorageForParkAmenities();
 	}, [setLocalStorageForParkAmenities]);
 
+	function handleFilter(selectedAmenities) {
+		let filteredParks = [];
+		allParks.forEach((park) => {
+			let amenities = JSON.parse(localStorage.getItem(park.parkCode));
+			if (amenities.includes(selectedAmenities)) {
+				filteredParks.push(park);
+			}
+		});
+		setParks(filteredParks);
+	}
+
 	return (
 		<div className="parks-page-container">
 			<Header />
@@ -101,7 +114,7 @@ function ParksPage() {
 					? "Washington, D.C."
 					: location.state.stateName}
 			</h1>
-			<Select options={stateAmenitiesFilterOptions} />
+			<Select options={stateAmenitiesFilterOptions} onChange={handleFilter} />
 			<div className="park-cards-container">
 				{parks.map((park) => {
 					return (
