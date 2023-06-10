@@ -56,19 +56,21 @@ function ParksPage() {
 	}, [stateAmenities]);
 
 	const fetchParkAmenities = async (park) => {
-		try {
-			const apiKey = process.env.REACT_APP_KEY;
-			const parkCode = park.parkCode;
-			const requestURL = `https://developer.nps.gov/api/v1/amenities/parksplaces?api_key=${apiKey}&parkCode=${parkCode}`;
-			const response = await fetch(requestURL);
-			const amenitiesDataObject = await response.json();
-			const parkAmenitiesArray = amenitiesDataObject.data;
-			const amenityNames = parkAmenitiesArray.map((amenity) => {
-				return amenity[0].name;
-			});
-			localStorage.setItem(parkCode, JSON.stringify(amenityNames));
-		} catch (error) {
-			return null;
+		const parkCode = park.parkCode;
+		if (!localStorage.getItem(parkCode)) {
+			try {
+				const apiKey = process.env.REACT_APP_KEY;
+				const requestURL = `https://developer.nps.gov/api/v1/amenities/parksplaces?api_key=${apiKey}&parkCode=${parkCode}`;
+				const response = await fetch(requestURL);
+				const amenitiesDataObject = await response.json();
+				const parkAmenitiesArray = amenitiesDataObject.data;
+				const amenityNames = parkAmenitiesArray.map((amenity) => {
+					return amenity[0].name;
+				});
+				localStorage.setItem(parkCode, JSON.stringify(amenityNames));
+			} catch (error) {
+				return null;
+			}
 		}
 	};
 
