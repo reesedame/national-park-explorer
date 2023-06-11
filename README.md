@@ -4,7 +4,7 @@
 
 ## Description
 
-Utilizing the [National Park Service API](https://www.nps.gov/subjects/developer/index.htm), this app allows you to explore national parks, as well as other sites managed by the National Park Service, by state. Upon opening the app, you will see a map of the United States. Click on a state to view its national parks and sites. Then, click on a park or site to view its details. Details include a description, a link to its official site, images, and amenities (such as restrooms, parking, etc).
+Utilizing the [National Park Service API](https://www.nps.gov/subjects/developer/index.htm), this app allows you to explore national parks, as well as other sites managed by the National Park Service, by state. Upon opening the app, you will see a map of the United States. Click on a state to view its national parks and sites. Then, click on a park or site to view its details and available amenities. Details include a description, a link to its official site, images, and amenities (such as restrooms, parking, etc). Parks can also be filtered depending on amenity. From the dropdown menu, select which amenities are most important to you to and the list of parks will be filtered according to your selection.
 
 ## Technologies Used
 
@@ -33,6 +33,6 @@ Feel free to expand upon this app! Just [fork](https://docs.github.com/en/get-st
 
 ## Future Enhancements
 
+- Optimize API calls.
 - Implement OAuth, so users can login and save national parks they want to visit.
 - Display current weather data when viewing a park's details.
-- Allow users the ability to filter a state's parks based on available amenities.
