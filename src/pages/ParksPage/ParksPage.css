@@ -8,6 +8,7 @@
     display: grid;
     grid-template-columns: min-content auto auto;
     grid-template-rows: 5em min-content 65em;
+    column-gap: 1.25em;
 }
 
 .park-details-container {
@@ -57,7 +58,7 @@
 
 .state-name {
     grid-column-start: 1;
-    margin-left: 1em;
+    margin-left: 0.9em;
     max-height: fit-content;
     max-width: fit-content;
     padding: 0.25em;
