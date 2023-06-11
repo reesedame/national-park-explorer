@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 import { useCallback, useEffect, useState } from "react";
 import "./ParksPage.css";
 import ParkAmenities from "../../components/ParkAmenities/ParkAmenities";
+import Select from "react-select";
 
 function ParksPage() {
 	const location = useLocation();
