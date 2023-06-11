@@ -8,6 +8,7 @@
     display: grid;
     grid-template-columns: min-content auto auto;
     grid-template-rows: 5em min-content 65em;
+    column-gap: 1.25em;
 }
 
 .park-details-container {
@@ -43,7 +44,7 @@
 }
 
 .no-park-details {
-    grid-area: 2 / 3;
+    grid-area: 3 / 3;
     background-color: rgb(247, 166, 15, .9);
     border-radius: 12px;
     display: flex;
@@ -57,7 +58,7 @@
 
 .state-name {
     grid-column-start: 1;
-    margin-left: 1em;
+    margin-left: 0.9em;
     max-height: fit-content;
     max-width: fit-content;
     padding: 0.25em;
@@ -76,4 +77,24 @@
 
 .park-cards-container::-webkit-scrollbar, .park-amenities-container::-webkit-scrollbar, .park-details-container::-webkit-scrollbar {
     display: none;
+}
+
+.no-parks {
+    background-color: rgb(247, 166, 15, .9);
+    color: white;
+    margin-left: 1.5em;
+    padding: 0.25em;
+    border-radius: 12px;
+}
+
+.filter {
+    grid-column-start: 2;
+}
+
+.filter-label {
+    background-color: rgb(247, 166, 15, .9);
+    color: white;
+    padding: 0.25em;
+    border-radius: 12px;
+    width: fit-content;
 }
