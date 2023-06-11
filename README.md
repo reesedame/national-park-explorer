@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# National Park Explorer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Click here to start exploring!](https://nationalparkexplorer.netlify.app/)
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+Utilizing the [National Park Service API](https://www.nps.gov/subjects/developer/index.htm), this app allows you to explore national parks, as well as other sites managed by the National Park Service, by state. Upon opening the app, you will see a map of the United States. Click on a state to view its national parks and sites. Then, click on a park or site to view its details. Details include a description, a link to its official site, images, and amenities (such as restrooms, parking, etc).
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![Trello](https://img.shields.io/badge/Trello-%23026AA7.svg?style=for-the-badge&logo=Trello&logoColor=white)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Screenshots
 
-### `npm test`
+![Landing Page](./public/assets/LandingPage.png)
+![Parks Page](./public/assets/ParksPage.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+[Check out the app here!](https://nationalparkexplorer.netlify.app/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+If you would like to run the application locally, you can do so by [cloning](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) it onto your device. Be sure to run `npm i` to download the necessary packages. Then, you can run `npm start` to run the application locally.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Current plans for the app can be viewed [here](https://trello.com/invite/b/ppzQni2M/ATTI78a29981bca8acc5b41a8665bf61cd93F66F11C3/capstone). This includes user stories, wireframes, and an entity-relationship-diagram.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Contribution Guidelines
 
-### `npm run eject`
+Feel free to expand upon this app! Just [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the repository and create a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) with any updates you've made.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Future Enhancements
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Implement OAuth, so users can login and save national parks they want to visit.
+- Display current weather data when viewing a park's details.
+- Allow users the ability to filter a state's parks based on available amenities.

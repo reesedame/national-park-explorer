@@ -5,6 +5,7 @@ function ParkDetails({ park }) {
 	const [imageIdx, setImageIdx] = useState(0);
 	let parkImages = park.images;
 
+	// This function iterates through the images provided by the API & displays each for 8s
 	useEffect(() => {
 		setInterval(() => {
 			setImageIdx((prevIdx) =>
@@ -27,17 +28,21 @@ function ParkDetails({ park }) {
 				</a>
 			</p>
 			<p>{park.description}</p>
-			<figure>
-				<img
-					src={parkImages[imageIdx].url}
-					alt={parkImages[imageIdx].title}
-					className="park-image"
-					loading="lazy"
-				/>
-				<figcaption>
-					<i>{parkImages[imageIdx].caption}</i>
-				</figcaption>
-			</figure>
+			{parkImages[imageIdx] === undefined ? (
+				<p>Image not available.</p>
+			) : (
+				<figure>
+					<img
+						src={parkImages[imageIdx].url}
+						alt={parkImages[imageIdx].title}
+						className="park-image"
+						loading="lazy"
+					/>
+					<figcaption>
+						<i>{parkImages[imageIdx].caption}</i>
+					</figcaption>
+				</figure>
+			)}
 		</div>
 	);
 }

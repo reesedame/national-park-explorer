@@ -5,7 +5,6 @@ import { useLocation } from "react-router-dom";
 import { useCallback, useEffect, useState } from "react";
 import "./ParksPage.css";
 import ParkAmenities from "../../components/ParkAmenities/ParkAmenities";
-import Select from "react-select";
 
 function ParksPage() {
 	const location = useLocation();
@@ -16,6 +15,7 @@ function ParksPage() {
 		useState([]);
 	const [allParks, setAllParks] = useState([]);
 
+	// Gets parks based on state that was clicked on LandingPage
 	const fetchParks = useCallback(async () => {
 		try {
 			const apiKey = process.env.REACT_APP_KEY;

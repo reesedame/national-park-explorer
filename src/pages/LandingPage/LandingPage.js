@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 function LandingPage() {
 	const navigate = useNavigate();
 	class Map extends Component {
+		// This function is required by imported USAMap
 		mapHandler = (event) => {
 			let stateName = event.target.innerHTML
 				.replace("<title>", "")
@@ -17,6 +18,7 @@ function LandingPage() {
 
 		render() {
 			return (
+				// This is a imported component that provides a clickable map of the United States
 				<USAMap onClick={this.mapHandler} defaultFill="rgb(247, 166, 15)" />
 			);
 		}
